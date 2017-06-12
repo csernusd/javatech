@@ -8,6 +8,7 @@ import hu.uni.miskolc.iit.java.technologies.carshop.service.dao.exceptions.CarNo
 public interface CarDAO {
 
 	void createCar(Car car);
+	void deleteCar(Car car);
 	
 	Collection<Car> readCars();
 	Car readCarByPlateNo(String plateNo) throws CarNotFoundException;

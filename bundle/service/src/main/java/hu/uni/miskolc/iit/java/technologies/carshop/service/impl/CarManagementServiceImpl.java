@@ -30,6 +30,15 @@ public class CarManagementServiceImpl implements CarManagementService {
 		}		
 	}
 	
+	public void delCar(String plateNo) {
+		try {
+			Car result = carDAO.readCarByPlateNo(plateNo);
+			carDAO.deleteCar(result);
+		} catch (CarNotFoundException e) {
+			System.out.println("Not existing car, not deleted.");
+		}		
+	}	
+	
 	public Car getCarByPlateNo(String plateNo) throws UnknownCarException {
 		try {
 			Car result = carDAO.readCarByPlateNo(plateNo);

@@ -49,6 +49,29 @@ public class CarDAOJSON implements CarDAO {
 		
 
 	}
+	
+	public void deleteCar(Car car) {
+		Collection<Car> allCars = readCars();
+		allCars.remove(car);
+
+		Car[] extendedDatabase = allCars.toArray(new Car[allCars.size()]);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			mapper.writeValue(database, extendedDatabase);
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			LOGGER.fatal(String.format("IOException occured due to %s", e.getMessage()));
+		}
+		LOGGER.info(String.format("Car (%s) has been deleted!", car.getPlateNo()));
+		
+
+	}	
 
 	public Collection<Car> readCars() {
 		ObjectMapper mapper = new ObjectMapper();

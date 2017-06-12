@@ -10,5 +10,6 @@ public interface CarManagementService {
 	Collection<Car> listCars();
 	Car getCarByPlateNo(String plateNo) throws UnknownCarException;
 	void acquireCar(Car car);
+	void delCar(String plateNo);
 	
 }

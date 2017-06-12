@@ -54,6 +54,9 @@ public class App {
 			if ("insert car".equals(line)) {
 				addCar();
 			}
+			if ("delete car".equals(line)) {
+				deleteCar();
+			}			
 			if ("list announcements".equals(line)) {
 				printAnnouncements(announcementManager.listAnnouncements());
 			}
@@ -105,6 +108,15 @@ public class App {
 
 	}
 
+	private static void deleteCar() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Plate No.: ");
+		String plateNo = br.readLine();
+		carManager.delCar(plateNo);
+
+	}
+	
+	
 	private static void printAnnouncements(Collection<Announcement> announcements) {
 		final int tableWidth = 80;
 		printHorisontalLine(tableWidth);
