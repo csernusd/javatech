@@ -3,7 +3,7 @@ package hu.uni.miskolc.iit.java.technologies.carshop.api.model;
 public class Car {
 
 	public static enum Producer {
-		AUDI, FERRARI, OPEL, BMW
+		AUDI, FERRARI, OPEL, BMW, KIA
 	}
 
 	private String plateNo;

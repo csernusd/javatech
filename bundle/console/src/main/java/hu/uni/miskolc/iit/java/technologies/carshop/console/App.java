@@ -91,7 +91,9 @@ public class App {
 		System.out.println("Plate No.: ");
 		String plateNo = br.readLine();
 		System.out.println("Producer: ");
-		Producer producer = Producer.valueOf(br.readLine());
+		String str = new String(br.readLine());
+		Producer producer = Producer.valueOf(str.toUpperCase());
+		
 		System.out.println("Color");
 		String color = br.readLine();
 		System.out.println("Number of Doors: ");

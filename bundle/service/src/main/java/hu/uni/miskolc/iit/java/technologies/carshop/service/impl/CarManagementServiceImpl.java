@@ -22,7 +22,12 @@ public class CarManagementServiceImpl implements CarManagementService {
 	}
 
 	public void acquireCar(Car car) {
-		carDAO.createCar(car);
+		try {
+			Car result = carDAO.readCarByPlateNo(car.getPlateNo());
+			System.out.println("Existing car, not added.");
+		} catch (CarNotFoundException e) {
+			carDAO.createCar(car);
+		}		
 	}
 	
 	public Car getCarByPlateNo(String plateNo) throws UnknownCarException {
