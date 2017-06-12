@@ -154,7 +154,8 @@ public class App {
 
 			announcementManager.announce(plateNo, expireDate, price);
 		} catch (UnknownCarException e) {
-			// TODO
+			// TODO			
+			System.out.println("No car in database, not added");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
